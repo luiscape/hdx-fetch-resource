@@ -1,7 +1,7 @@
 import urllib
 import json
 import os
-import scraperwiki
+import ckanapi
 
 # URL from the dataset in question.
 # Note that the id is: rowca-ebola-cases
@@ -26,6 +26,6 @@ if len(fileUrl) <= 1:
 
 # Downloading the file locally
 else:
-	urllib.urlretrieve (fileUrl, "http/Data Ebola (Public).xlsx")
+	urllib.urlretrieve (fileUrl, "http/data-ebola-public.xlsx")
 	scraperwiki.status('ok')
 	os.system("mail -s 'Link downloaded ok.' EMAIL_ADDRESS")
