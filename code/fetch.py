@@ -1,7 +1,7 @@
+# Script for fetching single resources
+# from a dataset on CKAN / HDX.
 import urllib
 import json
-import os
-import ckanapi
 
 # URL from the dataset in question.
 # Note that the id is: rowca-ebola-cases
@@ -21,11 +21,7 @@ fileUrl = data["result"]["resources"][0]["url"]
 # Checking if the file exists.
 if len(fileUrl) <= 1:
 	print "There was an error"
-	scraperwiki.status('error', 'Link broken')
-	os.system("mail -s 'Link failed to download.' EMAIL_ADDRESS")
 
 # Downloading the file locally
 else:
 	urllib.urlretrieve (fileUrl, "http/data-ebola-public.xlsx")
-	scraperwiki.status('ok')
-	os.system("mail -s 'Link downloaded ok.' EMAIL_ADDRESS")
